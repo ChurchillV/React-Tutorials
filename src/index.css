@@ -42,3 +42,19 @@
 .home {
   padding: 20px;
 }
+
+.item-preview { 
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+.item-preview:hover { 
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-preview h2 {
+  font-size: 20px;
+  color: #b64a4a;
+  margin-bottom: 8px;
+}
