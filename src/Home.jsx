@@ -5,7 +5,7 @@ const Home = () => {
     const [items, setItems] = useState([
         {product_name: "Necklace", type: "necklace", price: "50.00", id: "1"},
         {product_name: "Bracelet", type: "bracelet", price: "40.00", id: "2"},
-        {product_name: "Anklet", type: "anklet", price: "30.00", id: "3"}
+        {product_name: "Anklet", type: "necklace", price: "30.00", id: "3"}
     ])
     const [name, setName] = useState('Vince');
     let toggle = true;
@@ -27,7 +27,8 @@ const Home = () => {
             <h1>Home</h1>
             <p>Hello { name }! Welcome to Sybil's store</p>
             <button onClick={handleClick}>Click Me</button>
-            <ItemList items = {items}/>
+            <ItemList items = {items} title= "Available Jewellery"/>
+            <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces"/>
         </div> 
      );
 }
