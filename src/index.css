@@ -58,3 +58,22 @@
   color: #b64a4a;
   margin-bottom: 8px;
 }
+
+.product-range {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.image {
+  height: 60%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.image img {
+  width: 240px;
+}
