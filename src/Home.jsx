@@ -27,12 +27,8 @@ const Home = () => {
             <h1>Home</h1>
             <p>Hello { name }! Welcome to Sybil's store</p>
             <button onClick={handleClick}>Click Me</button>
-            <div className="product-range">
                 <ItemList items = {items} title= "Available Jewellery"/>
-            </div>
-            <div className="product-range">
                 <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces"/>
-            </div>
         </div> 
      );
 }
