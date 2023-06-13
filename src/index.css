@@ -58,19 +58,3 @@
   color: #b64a4a;
   margin-bottom: 8px;
 }
-
-.product-range {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.image {
-  height: 60%;
-  width: 100%;
-  display: grid;
-  place-items: center;
-}
-
-.image img {
-  width: 240px;
-}

@@ -1,18 +1,13 @@
-import Necklace from "./images/necklace.jpg";
-
-const ItemList = ({ items, title }) => {
+function ItemList ({ items, title, removeFromCart }) {
     return ( 
         <div className="product-range">
-            <div className="item-list">
                 <h1>{title}</h1>
+                <div className="item-list row">
                 {items.map((item) => (
-                    <div className="item-preview" key={ item.id }>
-                        <div className="image">
-                            <img src={ Necklace } alt="image of item" />
-                        </div>
+                    <div className="item-preview col-sm-4" key={ item.id }>
                         <h2>{ item.product_name }</h2>
                         <p>$ { item.price }</p>
-                        <button>Add to Cart</button>
+                        <button onClick={() => removeFromCart(item.id)}>Remove from Cart</button>
                     </div>
                 ))}
             </div>
