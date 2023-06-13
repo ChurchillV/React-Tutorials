@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 
 const Home = () => {
@@ -8,16 +8,16 @@ const Home = () => {
         {product_name: "Anklet", type: "necklace", price: "30.00", id: "3"}
     ])
     const [name, setName] = useState('Vince');
-    let toggle = true;
+    const [toggle, setToggle] = useState(true);
     const handleClick = () => {
         if (toggle) {
             setName('Keyshia');
-            toggle = false;
+            setToggle(false);
             console.log(toggle);
         }
         else {
             setName('Vince');
-            toggle = true;
+            setToggle(true)
             console.log(toggle);
         }
     }
@@ -26,6 +26,13 @@ const Home = () => {
         const newItems = items.filter(item => item.id !== id);
         setItems(newItems);
     }
+
+//Runs everytime a render occurs
+    useEffect(() => {
+        console.log('UseEffect ran');
+        console.log(name);
+    }, [name]);
+
 
     return (
         <div className="home">
