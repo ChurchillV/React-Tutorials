@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-
+import 'bootstrap';
 const Home = () => {
     const [items, setItems] = useState([
         {product_name: "Necklace", type: "necklace", price: "50.00", id: "1"},
@@ -39,9 +39,13 @@ const Home = () => {
             <h1>Home</h1>
             <p>Hello { name }! Welcome to Sybil's store</p>
             <button onClick={handleClick}>Click Me</button>
-                <ItemList items = {items} title= "Available Jewellery" removeFromCart={removeFromCart}/>
+            <div className= "catalogue">
+                <ItemList items = {items} title= "Jewellery" removeFromCart={removeFromCart}/>
+            </div>
+            <div className="catalogue">
                 <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces" removeFromCart={removeFromCart}/>
-        </div> 
+            </div>
+            </div>
      );
 }
  
