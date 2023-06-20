@@ -39,10 +39,10 @@ const Home = () => {
             <h1>Home</h1>
             <p>Hello { name }! Welcome to Sybil's store</p>
             <button onClick={handleClick}>Click Me</button>
-            <div className= "catalogue">
+            <div className= "catalogue row">
                 <ItemList items = {items} title= "Jewellery" removeFromCart={removeFromCart}/>
             </div>
-            <div className="catalogue">
+            <div className="catalogue row">
                 <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces" removeFromCart={removeFromCart}/>
             </div>
             </div>
