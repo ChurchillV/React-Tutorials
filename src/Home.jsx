@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import 'bootstrap';
 const Home = () => {
-    const [items, setItems] = useState([
-        {product_name: "Necklace", type: "necklace", price: "50.00", id: "1"},
-        {product_name: "Bracelet", type: "bracelet", price: "40.00", id: "2"},
-        {product_name: "Anklet", type: "necklace", price: "30.00", id: "3"}
-    ])
+    const [items, setItems] = useState(null);
     const [name, setName] = useState('Vince');
     const [toggle, setToggle] = useState(true);
+    const [isPending, setIsPending] = useState(true);
     const handleClick = () => {
         if (toggle) {
             setName('Keyshia');
@@ -17,7 +14,7 @@ const Home = () => {
         }
         else {
             setName('Vince');
-            setToggle(true)
+            setToggle(true);
             console.log(toggle);
         }
     }
@@ -29,21 +26,33 @@ const Home = () => {
 
 //Runs everytime a render occurs
     useEffect(() => {
-        console.log('UseEffect ran');
-        console.log(name);
+        setTimeout(() => {
+            console.log(name);
+        fetch('http://localhost:7000/items')
+            .then(res => {
+               return res.json();
+            })
+            .then(data => {
+                setItems(data);
+                setIsPending(false);
+            })
+        }, 1000);
     }, [name]);
 
 
     return (
         <div className="home">
-            <h1>Home</h1>
-            <p>Hello { name }! Welcome to Sybil's store</p>
-            <button onClick={handleClick}>Click Me</button>
+            {isPending && <div className="waiting-message">Fetching Data...</div>}
+            <div className="hero-section">
+                <h1>Home</h1>
+                <p>Hello { name }! Welcome to Sybil's store</p>
+                <button onClick={handleClick}>Click Me</button>
+            </div>
             <div className= "catalogue row">
-                <ItemList items = {items} title= "Jewellery" removeFromCart={removeFromCart}/>
+               {items &&  <ItemList items = {items} title= "Jewellery" removeFromCart={removeFromCart}/>}
             </div>
             <div className="catalogue row">
-                <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces" removeFromCart={removeFromCart}/>
+                {items && <ItemList items = {items.filter((item) => item.type === "necklace")} title= "Necklaces" removeFromCart={removeFromCart}/>}
             </div>
             </div>
      );

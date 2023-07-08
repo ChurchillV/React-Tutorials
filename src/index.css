@@ -58,3 +58,12 @@
   color: #b64a4a;
   margin-bottom: 8px;
 }
+
+.hero-section {
+  margin-bottom: 10%;
+}
+
+.waiting-message {
+  font-size: 30px;
+  margin-bottom: 20%;
+}

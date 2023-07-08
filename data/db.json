@@ -17,6 +17,12 @@
             "type" : "necklace",
             "price" : "30.00",
             "id" : "3"
+        },
+        {
+            "product_name" : "Earring",
+            "type" : "Earring",
+            "price" : "40.00",
+            "id" : "4"
         }
     ]
 }
